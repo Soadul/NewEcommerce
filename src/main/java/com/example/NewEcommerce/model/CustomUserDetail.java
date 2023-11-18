@@ -1,6 +1,9 @@
-/*
-package com.sheryians.major.model;
+package com.example.NewEcommerce.model;
 
+import com.example.NewEcommerce.model.User;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,11 +13,12 @@ public class CustomUserDetail extends User implements UserDetails {
     public CustomUserDetail(User user){
         super(user);
     }
-    @Override
+
+   @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorityList = new ArrayList<>();
         super.getRoles().forEach(role -> authorityList.add(new SimpleGrantedAuthority(role.getName() )));
-        return null;
+        return authorityList;
     }
 
     @Override
@@ -46,4 +50,3 @@ public class CustomUserDetail extends User implements UserDetails {
         return true;
     }
 }
-*/
